@@ -118,13 +118,13 @@ function lp_get (url, collection, callback) {
         xhr.setRequestHeader("content-type", "text/plain");
         xhr.setRequestHeader('Accept', 'application/json');
         xhr.setRequestHeader('Authorization', 'OAuth realm="https://api.staging.launchpad.net/"' +
-          ',oauth_consumer_key=' + localStorage.getItem('oauth_consumer_key') +
-          ',oauth_token' + localStorage.getItem('oauth_token') +
-          ',oauth_signature_method="PLAINTEXT"' +
-          ',oauth_signature=' + localStorage.getItem('oauth_token_secret') +
-          ',oauth_timestamp=' + new Date() / 1000 +
-          ',oauth_nonce=' + Math.floor(Math.random() * new Date()) +
-          ',oauth_version="1.0"');
+          ',oauth_consumer_key="' + localStorage.getItem('oauth_consumer_key') +
+          '",oauth_token="' + localStorage.getItem('oauth_token') +
+          '",oauth_signature_method="PLAINTEXT"' +
+          ',oauth_signature="&' + localStorage.getItem('oauth_token_secret') +
+          '",oauth_timestamp="' + new Date() / 1000 +
+          '",oauth_nonce="' + Math.floor(Math.random() * new Date()) +
+          '",oauth_version="1.0"');
 
         xhr.onreadystatechange = ready;
 
